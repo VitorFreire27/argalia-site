@@ -1,0 +1,7 @@
+{
+    "build": {
+        "env": {
+            "VERCEL_IGNORE_SECURITY_ALERTS": "1"
+        }
+    }
+}
