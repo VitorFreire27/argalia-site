@@ -50,20 +50,19 @@ export default function ResultsSection() {
     }, [])
 
     return (
-        <section id="results" ref={ref} className="py-32 bg-[#040408] relative overflow-hidden">
-            {/* Background glow */}
-            <div className="absolute inset-0 bg-gradient-radial from-indigo-950/30 via-transparent to-transparent" />
+        <section id="results" ref={ref} className="py-32 bg-white dark:bg-[#000000] relative overflow-hidden border-t border-black/5 dark:border-white/5 transition-colors duration-300">
+            {/* Background glow removed for stark P&B feel */}
 
             <div className="relative max-w-7xl mx-auto px-6">
                 {/* Header */}
                 <div className="animate-on-scroll text-center mb-16">
-                    <span className="text-xs font-medium tracking-widest uppercase text-indigo-400 mb-4 block">
+                    <span className="text-xs font-medium tracking-widest uppercase text-zinc-600 dark:text-zinc-400 mb-4 block">
                         Resultados
                     </span>
-                    <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-4">
-                        Números que <span className="gradient-text">comprovam</span>
+                    <h2 className="text-4xl md:text-5xl font-extrabold text-black dark:text-white leading-tight mb-4 tracking-tight">
+                        Números que <span className="text-zinc-500 dark:text-zinc-400">comprovam</span>
                     </h2>
-                    <p className="text-zinc-500 text-lg max-w-xl mx-auto">
+                    <p className="text-zinc-600 dark:text-zinc-500 text-lg max-w-xl mx-auto">
                         Resultados reais de clientes que transformaram sua operação com a Argalia.
                     </p>
                 </div>
@@ -73,12 +72,12 @@ export default function ResultsSection() {
                     {results.map((result, i) => (
                         <div
                             key={i}
-                            className="animate-on-scroll glass-card rounded-2xl p-8 text-center hover:border-indigo-500/30 hover:glow-border transition-all duration-300 group"
+                            className="animate-on-scroll glass-card rounded-2xl p-8 text-center hover:border-zinc-300 dark:hover:border-zinc-500/40 hover:bg-zinc-100 dark:hover:bg-zinc-800/20 transition-all duration-300 group"
                         >
-                            <div className="text-3xl mb-4">{result.icon}</div>
-                            <div className="text-4xl font-extrabold gradient-text mb-2">{result.value}</div>
-                            <div className="text-white font-semibold text-base mb-1">{result.label}</div>
-                            <div className="text-zinc-600 text-xs leading-relaxed">{result.description}</div>
+                            <div className="text-4xl mb-4">{result.icon}</div>
+                            <div className="text-4xl font-extrabold text-black dark:text-white mb-2 tracking-tighter">{result.value}</div>
+                            <div className="text-black dark:text-white font-semibold text-base mb-1">{result.label}</div>
+                            <div className="text-zinc-500 dark:text-zinc-600 text-xs leading-relaxed">{result.description}</div>
                         </div>
                     ))}
                 </div>

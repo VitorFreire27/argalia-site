@@ -1,6 +1,7 @@
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
+    darkMode: 'class',
     content: [
         './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
         './src/components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -10,15 +11,15 @@ const config: Config = {
         extend: {
             colors: {
                 accent: {
-                    DEFAULT: '#6366f1',
-                    light: '#818cf8',
-                    dark: '#4f46e5',
+                    DEFAULT: '#ffffff', // Branco puro
+                    light: '#f4f4f5',  // zinc-100
+                    dark: '#a1a1aa',   // zinc-400
                 },
-                accent2: '#a855f7',
+                accent2: '#d4d4d8',    // zinc-300
                 surface: {
-                    DEFAULT: '#0d0d0d',
-                    card: '#111111',
-                    border: '#1a1a1a',
+                    DEFAULT: '#000000', // Preto puro
+                    card: '#09090b',    // zinc-950
+                    border: '#27272a',  // zinc-800
                 },
             },
             fontFamily: {

@@ -30,24 +30,24 @@ export default function CTASection() {
     }
 
     const inputClass =
-        'w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder-zinc-600 focus:outline-none focus:border-indigo-500/50 focus:bg-white/8 transition-all duration-200'
+        'w-full bg-transparent border border-zinc-200 dark:border-zinc-800 rounded-xl px-4 py-3 text-black dark:text-white text-sm placeholder-zinc-400 dark:placeholder-zinc-600 focus:outline-none focus:border-black dark:focus:border-white focus:bg-zinc-50 dark:focus:bg-zinc-900 transition-all duration-200'
 
     return (
-        <section id="contact" ref={ref} className="py-32 bg-black relative overflow-hidden">
-            {/* Glow background */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-indigo-600/10 rounded-full blur-3xl pointer-events-none" />
+        <section id="contact" ref={ref} className="py-32 bg-white dark:bg-[#050505] relative overflow-hidden transition-colors duration-300">
+            {/* Glow background minimal */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-black/5 dark:bg-white/5 rounded-full blur-3xl pointer-events-none" />
 
             <div className="relative max-w-4xl mx-auto px-6">
                 {/* Header */}
                 <div className="animate-on-scroll text-center mb-12">
-                    <span className="text-xs font-medium tracking-widest uppercase text-indigo-400 mb-4 block">
+                    <span className="text-xs font-medium tracking-widest uppercase text-zinc-600 dark:text-zinc-400 mb-4 block">
                         Contato
                     </span>
-                    <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-4">
+                    <h2 className="text-4xl md:text-5xl font-extrabold text-black dark:text-white leading-tight mb-4 tracking-tight">
                         Pronto para transformar <br />
-                        sua <span className="gradient-text">operação?</span>
+                        sua <span className="text-zinc-500 dark:text-zinc-400">operação?</span>
                     </h2>
-                    <p className="text-zinc-500 text-lg max-w-xl mx-auto">
+                    <p className="text-zinc-600 dark:text-zinc-500 text-lg max-w-xl mx-auto">
                         Fale com a gente. Entendemos o seu contexto e encontramos a melhor solução.
                     </p>
                 </div>
@@ -57,8 +57,8 @@ export default function CTASection() {
                     {submitted ? (
                         <div className="text-center py-10">
                             <div className="text-5xl mb-4">✅</div>
-                            <h3 className="text-2xl font-bold text-white mb-2">Mensagem enviada!</h3>
-                            <p className="text-zinc-500">Entraremos em contato em breve.</p>
+                            <h3 className="text-2xl font-bold text-black dark:text-white mb-2">Mensagem enviada!</h3>
+                            <p className="text-zinc-600 dark:text-zinc-500">Entraremos em contato em breve.</p>
                         </div>
                     ) : (
                         <form onSubmit={handleSubmit} className="space-y-5">
@@ -116,7 +116,7 @@ export default function CTASection() {
                             </div>
                             <button
                                 type="submit"
-                                className="w-full py-4 bg-white text-black font-bold rounded-xl hover:bg-zinc-100 hover:scale-[1.02] transition-all duration-200 text-sm tracking-wide"
+                                className="w-full py-4 bg-black text-white dark:bg-white dark:text-black font-bold rounded-xl hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-all duration-200 text-sm tracking-wide"
                             >
                                 Enviar Mensagem →
                             </button>

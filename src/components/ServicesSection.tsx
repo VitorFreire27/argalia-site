@@ -56,17 +56,17 @@ export default function ServicesSection() {
     }, [])
 
     return (
-        <section id="services" ref={ref} className="py-32 bg-black">
+        <section id="services" ref={ref} className="py-32 bg-white dark:bg-black transition-colors duration-300">
             <div className="max-w-7xl mx-auto px-6">
                 {/* Header */}
                 <div className="animate-on-scroll mb-16 max-w-2xl">
-                    <span className="text-xs font-medium tracking-widest uppercase text-indigo-400 mb-4 block">
+                    <span className="text-xs font-medium tracking-widest uppercase text-zinc-600 dark:text-zinc-400 mb-4 block">
                         Nossas Soluções
                     </span>
-                    <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-4">
-                        Tecnologia que <span className="gradient-text">transforma</span>
+                    <h2 className="text-4xl md:text-5xl font-extrabold text-black dark:text-white leading-tight mb-4 tracking-tight">
+                        Tecnologia que <span className="text-zinc-500 dark:text-zinc-400">transforma</span>
                     </h2>
-                    <p className="text-zinc-500 text-lg leading-relaxed">
+                    <p className="text-zinc-600 dark:text-zinc-500 text-lg leading-relaxed">
                         Combinamos automação, cloud e IA para criar soluções que eliminam ineficiências e aceleram resultados.
                     </p>
                 </div>
@@ -76,18 +76,18 @@ export default function ServicesSection() {
                     {services.map((service, i) => (
                         <div
                             key={i}
-                            className="animate-on-scroll glass-card rounded-2xl p-8 group hover:border-indigo-500/30 hover:bg-indigo-500/5 transition-all duration-300 cursor-default"
+                            className="animate-on-scroll glass-card rounded-2xl p-8 group hover:border-zinc-500/30 hover:bg-zinc-800/30 transition-all duration-300 cursor-default"
                         >
                             {/* Icon */}
-                            <div className="w-14 h-14 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 mb-6 group-hover:bg-indigo-500/20 transition-colors duration-300">
+                            <div className="w-14 h-14 rounded-xl bg-zinc-100 dark:bg-zinc-800/50 border border-zinc-200 dark:border-zinc-700/50 flex items-center justify-center text-zinc-600 dark:text-zinc-300 mb-6 group-hover:bg-zinc-200 dark:group-hover:bg-zinc-700/50 group-hover:text-black dark:group-hover:text-white transition-colors duration-300">
                                 {service.icon}
                             </div>
 
                             {/* Title */}
-                            <h3 className="text-xl font-bold text-white mb-3">{service.title}</h3>
+                            <h3 className="text-xl font-bold text-black dark:text-white mb-3">{service.title}</h3>
 
                             {/* Description */}
-                            <p className="text-zinc-500 text-sm leading-relaxed mb-6">
+                            <p className="text-zinc-600 dark:text-zinc-500 text-sm leading-relaxed mb-6">
                                 {service.description}
                             </p>
 

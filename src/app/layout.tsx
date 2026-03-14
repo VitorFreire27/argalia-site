@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import { ThemeProvider } from '@/components/ThemeProvider'
+import { ThemeToggle } from '@/components/ThemeToggle'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -27,8 +29,11 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="bg-black text-white antialiased" suppressHydrationWarning>
-        {children}
+      <body className="antialiased" suppressHydrationWarning>
+        <ThemeProvider>
+          {children}
+          <ThemeToggle />
+        </ThemeProvider>
       </body>
     </html>
   )

@@ -29,19 +29,19 @@ export default function StatsSection() {
     }, [])
 
     return (
-        <section ref={ref} className="py-24 border-y border-white/5 bg-[#080808]">
+        <section ref={ref} className="py-24 border-y border-black/5 dark:border-white/5 bg-zinc-100 dark:bg-[#080808] transition-colors duration-300">
             <div className="max-w-7xl mx-auto px-6">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-0 md:divide-x md:divide-white/5">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-0 md:divide-x md:divide-black/5 dark:md:divide-white/5">
                     {stats.map((stat, i) => (
                         <div
                             key={i}
                             className="animate-on-scroll text-center md:px-12"
                         >
-                            <div className="text-5xl md:text-6xl font-extrabold gradient-text mb-2">
+                            <div className="text-5xl md:text-6xl font-extrabold text-black dark:text-white mb-2 tracking-tighter">
                                 {stat.value}
                             </div>
-                            <div className="text-white font-semibold text-lg mb-1">{stat.label}</div>
-                            <div className="text-zinc-500 text-sm">{stat.description}</div>
+                            <div className="text-zinc-700 dark:text-zinc-300 font-medium text-lg mb-1">{stat.label}</div>
+                            <div className="text-zinc-500 dark:text-zinc-500 text-sm">{stat.description}</div>
                         </div>
                     ))}
                 </div>
