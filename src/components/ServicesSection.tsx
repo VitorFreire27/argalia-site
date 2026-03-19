@@ -1,108 +1,116 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { motion } from 'framer-motion'
+import { Bot, Cloud, Cpu, Globe, Rocket, Shield } from 'lucide-react'
 
 const services = [
     {
-        icon: (
-            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18" />
-            </svg>
-        ),
+        icon: <Bot className="w-8 h-8 text-accent" />,
         title: 'Automação Inteligente',
-        description: 'Eliminamos tarefas repetitivas com workflows automatizados, integrações entre sistemas e bots que operam 24 horas por dia — sem intervenção humana.',
-        tags: ['n8n', 'Make', 'Zapier', 'RPA'],
+        description: 'Eliminamos tarefas repetitivas com workflows inteligentes que aprendem com seus dados.',
+        tags: ['n8n', 'Make', 'AI Agents'],
+        className: 'md:col-span-2 md:row-span-2 bg-gradient-to-br from-accent/10 to-transparent',
     },
     {
-        icon: (
-            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
-            </svg>
-        ),
-        title: 'Infraestrutura Cloud',
-        description: 'Escalabilidade, segurança e performance. Projetamos e gerenciamos ambientes cloud na AWS e Azure com alta disponibilidade e custo otimizado.',
-        tags: ['AWS', 'Azure', 'DevOps', 'Kubernetes'],
+        icon: <Cloud className="w-8 h-8 text-indigo-400" />,
+        title: 'Cloud Premium',
+        description: 'Infraestrutura robusta com 99.9% de uptime garantido.',
+        tags: ['AWS', 'Azure'],
+        className: 'md:col-span-1 md:row-span-1',
     },
     {
-        icon: (
-            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-        ),
-        title: 'Inteligência Artificial',
-        description: 'IA sob medida para o seu negócio: agentes inteligentes, análise preditiva, processamento de documentos e integração com modelos como GPT e Gemini.',
-        tags: ['OpenAI', 'Gemini', 'LangChain', 'RAG'],
+        icon: <Cpu className="w-8 h-8 text-indigo-300" />,
+        title: 'IA Customizada',
+        description: 'Modelos de linguagem treinados especificamente para o seu nicho.',
+        tags: ['LLMs', 'RAG'],
+        className: 'md:col-span-1 md:row-span-1',
+    },
+    {
+        icon: <Shield className="w-8 h-8 text-accent" />,
+        title: 'Cibersegurança',
+        description: 'Proteção de dados em nível bancário para todas as suas automações.',
+        tags: ['Security', 'Encryption'],
+        className: 'md:col-span-1 md:row-span-1',
+    },
+    {
+        icon: <Rocket className="w-8 h-8 text-indigo-200" />,
+        title: 'Escalabilidade',
+        description: 'Cresça sem limites técnicos. Nossa infra acompanha seu sucesso.',
+        tags: ['DevOps', 'Scale'],
+        className: 'md:col-span-1 md:row-span-1',
     },
 ]
 
 export default function ServicesSection() {
-    const ref = useRef<HTMLDivElement>(null)
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.querySelectorAll('.animate-on-scroll').forEach((el, i) => {
-                            setTimeout(() => el.classList.add('is-visible'), i * 120)
-                        })
-                    }
-                })
-            },
-            { threshold: 0.1 }
-        )
-        if (ref.current) observer.observe(ref.current)
-        return () => observer.disconnect()
-    }, [])
-
     return (
-        <section id="services" ref={ref} className="py-32 bg-white dark:bg-black transition-colors duration-300">
-            <div className="max-w-7xl mx-auto px-6">
+        <section id="services" className="py-20 relative overflow-hidden bg-black">
+            <div className="max-w-7xl mx-auto px-6 relative z-10">
                 {/* Header */}
-                <div className="animate-on-scroll mb-16 max-w-2xl">
-                    <span className="text-xs font-medium tracking-widest uppercase text-zinc-600 dark:text-zinc-400 mb-4 block">
-                        Nossas Soluções
-                    </span>
-                    <h2 className="text-4xl md:text-5xl font-extrabold text-black dark:text-white leading-tight mb-4 tracking-tight">
-                        Tecnologia que <span className="text-zinc-500 dark:text-zinc-400">transforma</span>
-                    </h2>
-                    <p className="text-zinc-600 dark:text-zinc-500 text-lg leading-relaxed">
-                        Combinamos automação, cloud e IA para criar soluções que eliminam ineficiências e aceleram resultados.
-                    </p>
+                <div className="mb-12 text-center">
+                    <motion.div 
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        className="bg-accent/10 rounded-full px-6 py-2 border border-accent/20 text-accent-light text-xs font-bold tracking-[0.3em] uppercase mb-8 inline-block mx-auto"
+                    >
+                        Ecossistema Argali
+                    </motion.div>
+                    <motion.h2 
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter"
+                    >
+                        Soluções que <span className="text-accent text-glow">Redefinem</span> o Futuro.
+                    </motion.h2>
+                    <motion.p 
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ delay: 0.2 }}
+                        className="text-platinum/50 text-xl max-w-2xl mx-auto font-light"
+                    >
+                        Não apenas automatizamos. Criamos inteligência que evolui com o seu negócio.
+                    </motion.p>
                 </div>
 
-                {/* Cards */}
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {/* Bento Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[220px]">
                     {services.map((service, i) => (
-                        <div
+                        <motion.div
                             key={i}
-                            className="animate-on-scroll glass-card rounded-2xl p-8 group hover:border-zinc-500/30 hover:bg-zinc-800/30 transition-all duration-300 cursor-default"
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: i * 0.1 }}
+                            whileHover={{ y: -10 }}
+                            className={`bg-[#0a0a0c] p-8 rounded-3xl border border-white/10 flex flex-col justify-between group transition-all duration-500 cursor-pointer overflow-hidden ${service.className}`}
                         >
-                            {/* Icon */}
-                            <div className="w-14 h-14 rounded-xl bg-zinc-100 dark:bg-zinc-800/50 border border-zinc-200 dark:border-zinc-700/50 flex items-center justify-center text-zinc-600 dark:text-zinc-300 mb-6 group-hover:bg-zinc-200 dark:group-hover:bg-zinc-700/50 group-hover:text-black dark:group-hover:text-white transition-colors duration-300">
-                                {service.icon}
+                            <div className="flex justify-between items-start">
+                                <div className="p-3 bg-white/5 rounded-2xl group-hover:bg-accent/20 transition-colors duration-300">
+                                    {service.icon}
+                                </div>
+                                <div className="opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <Globe className="w-5 h-5 text-accent/50" />
+                                </div>
                             </div>
 
-                            {/* Title */}
-                            <h3 className="text-xl font-bold text-black dark:text-white mb-3">{service.title}</h3>
-
-                            {/* Description */}
-                            <p className="text-zinc-600 dark:text-zinc-500 text-sm leading-relaxed mb-6">
-                                {service.description}
-                            </p>
-
-                            {/* Tags */}
-                            <div className="flex flex-wrap gap-2">
-                                {service.tags.map((tag) => (
-                                    <span
-                                        key={tag}
-                                        className="px-3 py-1 text-xs font-medium text-zinc-400 bg-white/5 rounded-full border border-white/10"
-                                    >
-                                        {tag}
-                                    </span>
-                                ))}
+                            <div>
+                                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-accent transition-colors">
+                                    {service.title}
+                                </h3>
+                                <p className="text-platinum/50 text-sm leading-relaxed mb-4 line-clamp-2">
+                                    {service.description}
+                                </p>
+                                <div className="flex flex-wrap gap-2">
+                                    {service.tags.map((tag) => (
+                                        <span
+                                            key={tag}
+                                            className="px-2 py-1 text-[10px] uppercase tracking-wider font-bold text-accent-light bg-accent/5 rounded-md border border-accent/10"
+                                        >
+                                            {tag}
+                                        </span>
+                                    ))}
+                                </div>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>

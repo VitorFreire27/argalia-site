@@ -11,16 +11,21 @@ const config: Config = {
         extend: {
             colors: {
                 accent: {
-                    DEFAULT: '#ffffff', // Branco puro
-                    light: '#f4f4f5',  // zinc-100
-                    dark: '#a1a1aa',   // zinc-400
+                    DEFAULT: '#6366f1', // Indigo 500
+                    light: '#818cf8',  // Indigo 400
+                    dark: '#4f46e5',   // Indigo 600
+                    glow: 'rgba(99, 102, 241, 0.5)',
                 },
-                accent2: '#d4d4d8',    // zinc-300
                 surface: {
-                    DEFAULT: '#000000', // Preto puro
-                    card: '#09090b',    // zinc-950
-                    border: '#27272a',  // zinc-800
+                    DEFAULT: '#020617', // Slate 950 (Midnight)
+                    card: 'rgba(15, 23, 42, 0.6)', // Slate 900 with transparency
+                    border: 'rgba(30, 41, 59, 0.5)', // Slate 800 with transparency
+                    muted: '#1e293b', // Slate 800
                 },
+                platinum: {
+                    DEFAULT: '#f8fafc', // Slate 50
+                    muted: '#94a3b8',   // Slate 400
+                }
             },
             fontFamily: {
                 sans: ['Inter', 'system-ui', 'sans-serif'],

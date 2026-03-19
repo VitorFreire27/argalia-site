@@ -1,84 +1,75 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { motion } from 'framer-motion'
+import { TrendingUp, Users, Zap, Clock } from 'lucide-react'
 
 const results = [
     {
         value: '-60%',
-        label: 'Tempo em tarefas manuais',
-        description: 'médio nos primeiros 90 dias',
-        icon: '⏱',
+        label: 'Tempo Operacional',
+        description: 'Redução em tarefas manuais repetitivas.',
+        icon: <Clock className="w-6 h-6 text-accent" />,
     },
     {
         value: '+200%',
-        label: 'Produtividade da equipe',
-        description: 'ao eliminar trabalho repetitivo',
-        icon: '🚀',
-    },
-    {
-        value: '60 dias',
-        label: 'Para ver ROI positivo',
-        description: 'tempo médio para retorno do investimento',
-        icon: '📈',
+        label: 'Produtividade',
+        description: 'Aumento real na entrega das equipes.',
+        icon: <TrendingUp className="w-6 h-6 text-indigo-400" />,
     },
     {
         value: '24/7',
-        label: 'Operação autônoma',
-        description: 'sistemas funcionando sem intervenção humana',
-        icon: '🤖',
+        label: 'Operação IA',
+        description: 'Sistemas autônomos que nunca param.',
+        icon: <Zap className="w-6 h-6 text-indigo-300" />,
+    },
+    {
+        value: 'ROI+',
+        label: 'Resultado Médio',
+        description: 'Retorno visível em menos de 60 dias.',
+        icon: <Users className="w-6 h-6 text-accent" />,
     },
 ]
 
 export default function ResultsSection() {
-    const ref = useRef<HTMLDivElement>(null)
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.querySelectorAll('.animate-on-scroll').forEach((el, i) => {
-                            setTimeout(() => el.classList.add('is-visible'), i * 100)
-                        })
-                    }
-                })
-            },
-            { threshold: 0.1 }
-        )
-        if (ref.current) observer.observe(ref.current)
-        return () => observer.disconnect()
-    }, [])
-
     return (
-        <section id="results" ref={ref} className="py-32 bg-white dark:bg-[#000000] relative overflow-hidden border-t border-black/5 dark:border-white/5 transition-colors duration-300">
-            {/* Background glow removed for stark P&B feel */}
-
-            <div className="relative max-w-7xl mx-auto px-6">
-                {/* Header */}
-                <div className="animate-on-scroll text-center mb-16">
-                    <span className="text-xs font-medium tracking-widest uppercase text-zinc-600 dark:text-zinc-400 mb-4 block">
-                        Resultados
-                    </span>
-                    <h2 className="text-4xl md:text-5xl font-extrabold text-black dark:text-white leading-tight mb-4 tracking-tight">
-                        Números que <span className="text-zinc-500 dark:text-zinc-400">comprovam</span>
-                    </h2>
-                    <p className="text-zinc-600 dark:text-zinc-500 text-lg max-w-xl mx-auto">
-                        Resultados reais de clientes que transformaram sua operação com a Argalia.
+        <section id="results" className="py-32 relative overflow-hidden bg-black">
+            <div className="max-w-7xl mx-auto px-6 relative z-10">
+                <div className="text-center mb-20">
+                    <motion.h2 
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        className="text-4xl md:text-5xl font-black text-white mb-6"
+                    >
+                        Métricas de <span className="text-accent text-glow">Impacto</span>
+                    </motion.h2>
+                    <p className="text-platinum/50 text-xl font-light">
+                        O que nossos clientes alcançam com a Argalia.
                     </p>
                 </div>
 
-                {/* Results grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     {results.map((result, i) => (
-                        <div
+                        <motion.div
                             key={i}
-                            className="animate-on-scroll glass-card rounded-2xl p-8 text-center hover:border-zinc-300 dark:hover:border-zinc-500/40 hover:bg-zinc-100 dark:hover:bg-zinc-800/20 transition-all duration-300 group"
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.5, delay: i * 0.1 }}
+                            whileHover={{ scale: 1.05 }}
+                            className="glass-card p-10 rounded-3xl border border-white/5 text-center transition-all duration-300 shadow-2xl"
                         >
-                            <div className="text-4xl mb-4">{result.icon}</div>
-                            <div className="text-4xl font-extrabold text-black dark:text-white mb-2 tracking-tighter">{result.value}</div>
-                            <div className="text-black dark:text-white font-semibold text-base mb-1">{result.label}</div>
-                            <div className="text-zinc-500 dark:text-zinc-600 text-xs leading-relaxed">{result.description}</div>
-                        </div>
+                            <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center mx-auto mb-6">
+                                {result.icon}
+                            </div>
+                            <div className="text-5xl font-black text-white mb-3 text-glow">
+                                {result.value}
+                            </div>
+                            <div className="text-platinum font-bold text-lg mb-2">
+                                {result.label}
+                            </div>
+                            <div className="text-platinum/40 text-sm leading-relaxed">
+                                {result.description}
+                            </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>

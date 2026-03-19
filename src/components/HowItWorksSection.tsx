@@ -1,85 +1,98 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import Image from 'next/image'
+import { motion } from 'framer-motion'
+import { CheckCircle2, Search, Settings, Zap } from 'lucide-react'
 
 const steps = [
     {
-        number: '01',
-        title: 'Diagnóstico da Operação',
-        description: 'Mapeamos os processos atuais, identificamos gargalos e oportunidades de automação e IA na sua operação.',
+        icon: <Search className="w-6 h-6 text-accent" />,
+        title: 'Diagnostico',
+        description: 'Mapeamos sua operação e identificamos gargalos propícios para IA.',
     },
     {
-        number: '02',
-        title: 'Desenho da Solução',
-        description: 'Projetamos a arquitetura ideal — integrações, modelos de IA, fluxos automatizados — alinhada às suas metas.',
+        icon: <Settings className="w-6 h-6 text-indigo-400" />,
+        title: 'Estratégia',
+        description: 'Projetamos a arquitetura ideal de agentes e modelos para seu caso.',
     },
     {
-        number: '03',
-        title: 'Implementação e Testes',
-        description: 'Desenvolvemos e implantamos com rigor: testes, validações e ajustes finos antes de entrar em produção.',
+        icon: <Zap className="w-6 h-6 text-indigo-300" />,
+        title: 'Execução',
+        description: 'Desenvolvimento ágil com testes rigorosos e integração fluida.',
     },
     {
-        number: '04',
-        title: 'Suporte Contínuo',
-        description: 'Monitoramos, otimizamos e evoluímos a solução continuamente para garantir máxima performance e resultado.',
+        icon: <CheckCircle2 className="w-6 h-6 text-accent" />,
+        title: 'Sucesso',
+        description: 'Monitoramento contínuo e evolução constante da sua infra.',
     },
 ]
 
 export default function HowItWorksSection() {
-    const ref = useRef<HTMLDivElement>(null)
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.querySelectorAll('.animate-on-scroll').forEach((el, i) => {
-                            setTimeout(() => el.classList.add('is-visible'), i * 150)
-                        })
-                    }
-                })
-            },
-            { threshold: 0.1 }
-        )
-        if (ref.current) observer.observe(ref.current)
-        return () => observer.disconnect()
-    }, [])
-
     return (
-        <section id="how-it-works" ref={ref} className="py-32 bg-zinc-50 dark:bg-[#050505] transition-colors duration-300">
-            <div className="max-w-7xl mx-auto px-6">
-                {/* Header */}
-                <div className="animate-on-scroll text-center mb-20">
-                    <span className="text-xs font-medium tracking-widest uppercase text-zinc-600 dark:text-zinc-400 mb-4 block">
-                        Processo
-                    </span>
-                    <h2 className="text-4xl md:text-5xl font-extrabold text-black dark:text-white leading-tight mb-4 tracking-tight">
-                        Como <span className="text-zinc-500 dark:text-zinc-400">trabalhamos</span>
-                    </h2>
-                    <p className="text-zinc-600 dark:text-zinc-500 text-lg max-w-xl mx-auto leading-relaxed">
-                        Um processo estruturado que garante resultados concretos e mensuráveis.
+        <section id="how-it-works" className="py-32 relative overflow-hidden bg-black">
+            {/* Ambient Mascot Background - Enlarged and Offset Right */}
+            {/* Right Side */}
+            <div className="absolute top-[-400px] -right-[150px] md:-right-[250px] lg:-right-[400px] w-[800px] md:w-[1200px] lg:w-[1600px] aspect-square pointer-events-none select-none z-0">
+                <motion.div
+                    initial={{ opacity: 0.023, scale: 1, x: 50 }}
+                    whileInView={{ opacity: 0.023, scale: 1, x: 0 }}
+                    transition={{ duration: 1.5, ease: "easeOut" }}
+                    className="relative w-full h-full"
+                >
+                    <Image
+                        src="/Papelaria/mascote-cabeca-1-argali-preto-no-branco.png"
+                        alt=""
+                        fill
+                        className="object-contain brightness-0 invert"
+                    />
+                </motion.div>
+            </div>
+
+            <div className="max-w-7xl mx-auto px-6 relative z-10">
+                <div className="text-center mb-24">
+                    <motion.h2
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        className="text-4xl md:text-5xl font-black text-white mb-6"
+                    >
+                        Fluxo de <span className="text-accent text-glow">Transformação</span>
+                    </motion.h2>
+                    <p className="text-platinum/50 text-lg max-w-xl mx-auto font-light">
+                        Um processo desenhado para máxima eficiência e entrega de valor imediata.
                     </p>
                 </div>
 
-                {/* Steps */}
-                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
                     {steps.map((step, i) => (
-                        <div key={i} className="animate-on-scroll relative">
-                            {/* Connector line (desktop) */}
-                            {i < steps.length - 1 && (
-                                <div className="hidden md:block absolute top-8 left-1/2 w-full h-px bg-gradient-to-r from-zinc-700 to-transparent z-0" />
-                            )}
-
-                            <div className="relative z-10">
-                                {/* Number badge */}
-                                <div className="w-16 h-16 rounded-2xl bg-white dark:bg-[#0a0a0a] border border-zinc-200 dark:border-zinc-800 flex items-center justify-center mb-6 text-zinc-600 dark:text-zinc-300 font-extrabold text-xl shadow-[0_0_15px_rgba(0,0,0,0.05)] dark:shadow-[0_0_15px_rgba(255,255,255,0.03)] group-hover:border-zinc-400 dark:group-hover:border-zinc-500 transition-colors duration-300">
-                                    {step.number}
-                                </div>
-
-                                <h3 className="text-black dark:text-white font-bold text-lg mb-3">{step.title}</h3>
-                                <p className="text-zinc-600 dark:text-zinc-500 text-sm leading-relaxed">{step.description}</p>
+                        <motion.div
+                            key={i}
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ delay: i * 0.15 }}
+                            className="relative group"
+                        >
+                            {/* Step Indicator */}
+                            <div className="absolute -top-10 -left-8 text-8xl font-black text-accent text-glow select-none transition-all">
+                                0{i + 1}
                             </div>
-                        </div>
+
+                            <div className="relative z-10 pt-8">
+                                <div className="w-14 h-14 rounded-2xl bg-black/50 backdrop-blur-md border border-white/20 flex items-center justify-center mb-6 shadow-2xl shadow-accent/20 transition-all group-hover:border-accent/40 group-hover:bg-accent/10">
+                                    {step.icon}
+                                </div>
+                                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-accent transition-colors">
+                                    {step.title}
+                                </h3>
+                                <p className="text-platinum/60 text-sm leading-relaxed">
+                                    {step.description}
+                                </p>
+                            </div>
+
+                            {/* Link Line */}
+                            {i < steps.length - 1 && (
+                                <div className="hidden md:block absolute top-[110px] left-[100px] w-full h-[1px] bg-gradient-to-r from-accent/30 to-transparent" />
+                            )}
+                        </motion.div>
                     ))}
                 </div>
             </div>
