@@ -33,13 +33,19 @@ export default function Footer() {
                     </div>
 
                     {/* Branding/Copyright Column */}
-                    <div className="flex flex-col items-center md:items-end gap-2">
+                    <div className="flex flex-col items-center md:items-end gap-3">
                         <div className="flex items-center gap-2">
-                            <span className="text-xl font-black text-white tracking-widest uppercase">Argali</span>
+                            <Image
+                                src="/Papelaria/mascote-cabeca-1-argali-preto-no-branco.png"
+                                alt="Argali Mascot"
+                                width={80}
+                                height={80}
+                                className="w-16 h-16 md:w-20 md:h-20 object-contain brightness-0 invert opacity-60"
+                            />
                             <div className="w-1.5 h-1.5 bg-accent rounded-full animate-pulse" />
                         </div>
                         <p className="text-[10px] text-platinum/20 font-mono">
-                            © 2024 ARGALI • CODED FOR THE FUTURE
+                            © 2026 ARGALI • CODED FOR THE FUTURE
                         </p>
                     </div>
                 </div>

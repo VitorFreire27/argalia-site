@@ -58,7 +58,7 @@ export default function ServicesSection() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
-                        className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter"
+                        className="text-4xl md:text-5xl lg:text-7xl font-black text-white mb-8 tracking-tighter"
                     >
                         Soluções que <span className="text-accent text-glow">Redefinem</span> o Futuro.
                     </motion.h2>
@@ -66,14 +66,14 @@ export default function ServicesSection() {
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         transition={{ delay: 0.2 }}
-                        className="text-platinum/50 text-xl max-w-2xl mx-auto font-light"
+                        className="text-platinum/50 text-lg sm:text-xl max-w-2xl mx-auto font-light px-4"
                     >
                         Não apenas automatizamos. Criamos inteligência que evolui com o seu negócio.
                     </motion.p>
                 </div>
 
                 {/* Bento Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[220px]">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-auto md:auto-rows-[220px]">
                     {services.map((service, i) => (
                         <motion.div
                             key={i}

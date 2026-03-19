@@ -31,8 +31,8 @@ export default function HowItWorksSection() {
     return (
         <section id="how-it-works" className="py-32 relative overflow-hidden bg-black">
             {/* Ambient Mascot Background - Enlarged and Offset Right */}
-            {/* Right Side */}
-            <div className="absolute top-[-400px] -right-[150px] md:-right-[250px] lg:-right-[400px] w-[800px] md:w-[1200px] lg:w-[1600px] aspect-square pointer-events-none select-none z-0">
+            {/* Right Side - Centered on mobile, offset on desktop */}
+            <div className="absolute top-[-150px] md:top-[-400px] left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:-right-[250px] lg:-right-[400px] w-[500px] md:w-[1200px] lg:w-[1600px] aspect-square pointer-events-none select-none z-0">
                 <motion.div
                     initial={{ opacity: 0.023, scale: 1, x: 50 }}
                     whileInView={{ opacity: 0.023, scale: 1, x: 0 }}
@@ -48,7 +48,7 @@ export default function HowItWorksSection() {
                 </motion.div>
             </div>
 
-            <div className="max-w-7xl mx-auto px-6 relative z-10">
+            <div className="max-w-7xl mx-auto px-6 relative z-10 pt-24 md:pt-32">
                 <div className="text-center mb-24">
                     <motion.h2
                         initial={{ opacity: 0, scale: 0.95 }}
@@ -62,28 +62,28 @@ export default function HowItWorksSection() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-16 md:gap-12">
                     {steps.map((step, i) => (
                         <motion.div
                             key={i}
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ delay: i * 0.15 }}
-                            className="relative group"
+                            className="relative group flex flex-col items-center text-center md:items-start md:text-left"
                         >
                             {/* Step Indicator */}
-                            <div className="absolute -top-10 -left-8 text-8xl font-black text-accent text-glow select-none transition-all">
+                            <div className="absolute -top-10 left-1/2 -translate-x-1/2 md:left-[-32px] md:translate-x-0 text-7xl md:text-8xl font-black text-accent text-glow select-none transition-all">
                                 0{i + 1}
                             </div>
 
                             <div className="relative z-10 pt-8">
-                                <div className="w-14 h-14 rounded-2xl bg-black/50 backdrop-blur-md border border-white/20 flex items-center justify-center mb-6 shadow-2xl shadow-accent/20 transition-all group-hover:border-accent/40 group-hover:bg-accent/10">
+                                <div className="w-14 h-14 rounded-2xl bg-black/50 backdrop-blur-md border border-white/20 flex items-center justify-center mb-6 shadow-2xl shadow-accent/20 transition-all group-hover:border-accent/40 group-hover:bg-accent/10 mx-auto md:mx-0">
                                     {step.icon}
                                 </div>
                                 <h3 className="text-xl font-bold text-white mb-3 group-hover:text-accent transition-colors">
                                     {step.title}
                                 </h3>
-                                <p className="text-platinum/60 text-sm leading-relaxed">
+                                <p className="text-platinum/60 text-sm leading-relaxed max-w-[280px] md:max-w-none">
                                     {step.description}
                                 </p>
                             </div>

@@ -24,9 +24,9 @@ export default function HeroSection() {
                         Automação • Cloud • Inteligência Artificial
                     </motion.div>
 
-                    <div className="font-sans font-black space-y-2 mb-12 w-full select-none tracking-tighter">
-                        <div className="w-full text-4xl md:text-6xl lg:text-[4.5rem] text-white leading-[1.1] min-h-[1.2em] flex items-baseline justify-start gap-x-[0.34em]">
-                            <span className="text-white/40 whitespace-nowrap shrink-0">// Automatize o </span>
+                    <div className="font-sans font-black space-y-4 sm:space-y-2 mb-12 w-full select-none tracking-tighter">
+                        <div className="w-full text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] text-white leading-[1.1] min-h-[1.2em] flex flex-col sm:flex-row sm:items-baseline justify-start sm:gap-x-[0.34em]">
+                            <span className="text-white/40 whitespace-nowrap shrink-0">{"//"} Automatize o </span>
                             <Typewriter
                                 words={['impossível.', 'complexo.', 'seu dia.']}
                                 typeSpeed={120}
@@ -35,8 +35,8 @@ export default function HeroSection() {
                                 keepPrefix={0}
                             />
                         </div>
-                        <div className="w-full text-4xl md:text-6xl lg:text-[4.5rem] text-white/20 leading-[1.1] min-h-[1.2em] flex items-baseline justify-start gap-x-[0.34em]">
-                            <span className="text-white/30 whitespace-nowrap shrink-0">// Escale o </span>
+                        <div className="w-full text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] text-white/20 leading-[1.1] min-h-[1.2em] flex flex-col sm:flex-row sm:items-baseline justify-start sm:gap-x-[0.34em]">
+                            <span className="text-white/30 whitespace-nowrap shrink-0">{"//"} Escale o </span>
                             <Typewriter
                                 words={['futuro.', 'amanhã.', 'sucesso.']}
                                 typeSpeed={120}
